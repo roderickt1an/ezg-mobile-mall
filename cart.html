@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>e账柜-购物车</title>
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="/styles/base.min.css">
+  <link rel="stylesheet" href="/styles/cart.min.css">
+</head>
+<body>
+
+<script type="text/javascript" src="/js/head_two_level.js"></script>
+<script type="text/javascript">
+document.getElementById("header-title").innerText = "购物车";
+function headerToBack (){
+	location.href = "/center.html";
+}
+</script>
+<div class="cart-noEmpty">
+
+  
+  <div class="cart-coupon">
+    <label class="cart-coupon-entry">
+      <div class="cart-coupon-entry-checkbox">
+        <input type="checkbox" id="coupon_entry_checkbox">
+        <i class="icon"></i>
+      </div>
+      <span>添加代金券</span>
+    </label>
+    <div class="cart-coupon-main" style="display: none">
+      <div class="cart-coupon-option">
+        <button type="button" class="active">输入代金券</button>
+        <button type="button">可用代金券</button>
+      </div>
+      <div class="cart-coupon-input">
+      
+        <div class="cart-coupon-input-unInput clearfix">
+          <input type="text" id="couponInput" placeholder="请输入代金券码">
+          <p class="cart-coupon-error">您输入的代金券有误！</p>
+          <button type="button" class="cart-coupon-button" id="couponInputSubmit">提交</button>
+        </div>
+        <div class="cart-coupon-input-confirm clearfix" style="display: none">
+          <label>
+            <div class="cart-coupon-input-confirm-checkbox">
+              <input type="checkbox" id="couponConfirmCheckbox">
+               <i class="icon">✓</i>
+            </div>
+            <span>123456789</span>
+          </label>
+          <p class="cart-coupon-info">满500减499　　无时间限制</p>
+          <p class="cart-coupon-error">代金券不符合使用要求！</p>
+          <button type="button" class="cart-coupon-button" id="couponInputCancel">取消</button>
+        </div>
+      </div>
+      
+      <div class="cart-coupon-choose" style="display: none">
+        <div class="cart-coupon-list">
+          
+        </div>
+        
+        <div class="cart-coupon-empty clearfix" style="display: none">
+          <p>您还没有可用代金券</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="cart-option">
+    <label>
+      <div class="cart-option-checkbox">
+        <input type="checkbox" id="chooseAllCheckbox">
+        <i class="icon">✓</i>
+      </div>
+      <span>全选</span>
+    </label>
+    <button type="button" id="deleteChooseButton">删除</button>
+    <p>已经选中<span id="chooseCount">0</span>件商品</p>
+  </div>
+  <div class="cart-footer">
+    <div>折扣:<span>￥<strong id="cart_save">10</strong></span></div>
+    <div>合计:<span>￥<strong id="cart_sum">111111</strong></span></div>
+    <div><button type="button" id="cart_submit">提交订单</button></div>
+  </div>
+</div>
+<div class="cart-empty" style="display: none">
+  <i class="iconfont icon-gouwuche"></i>
+  <p>您的购物车是空的，请返回添加</p>
+  <a href="index.html">去逛逛</a>
+</div>
+<script src="scripts/jquery.min.js"></script>
+<script src="scripts/show_dialog.min.js"></script>
+<script src="js/common.js"></script>
+<script src="js/cart.js"></script>
+<script src="/js/count.js"></script>
+<script src="scripts/show_loading.min.js"></script>
+<script>
+  $('#coupon_entry_checkbox').change(function () {
+    $('.cart-coupon-main').slideToggle();
+  })
+  $('.cart-coupon-option>button').click(function () {
+    if($(this).text()=='输入代金券'){
+      $(this).addClass('active').siblings().removeClass('active');
+      $('.cart-coupon-input').show();
+      $('.cart-coupon-choose').hide();
+    }else {
+      $(this).addClass('active').siblings().removeClass('active');
+      $('.cart-coupon-input').hide();
+      $('.cart-coupon-choose').show();
+    }
+  })
+</script>
+</body>
+</html>

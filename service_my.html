@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>e账柜-服务动态</title>
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="styles/base.min.css">
+  <link rel="stylesheet" href="styles/service.min.css">
+</head>
+<body class="white">
+
+
+<header class="header">
+  <div class="header-toBack" onclick="location.href='/service.html';"><i class="iconfont icon-zuojiantou"></i></div>
+  <span class="header-title">服务动态</span>
+</header>
+
+
+<div class="service-myService-main">
+
+<!--  
+  <i>
+    <span>核名</span>
+    <span>已结束</span>
+  </i>
+  <em></em>
+  <i>
+    <span>办理工商执照</span>
+    <span>已结束</span>
+  </i>
+  <em></em>
+  <i class="doing">
+    <p class="service-myService-doing-start">开始时间</p>
+    <p>2016.10.30</p>
+    <p class="service-myService-doing-finish">预计完成时间</p>
+    <p>2016.10.30</p>
+    <span>刻章备案</span>
+    <span>正在执行</span>
+  </i>
+  <em></em>
+  <i class="undo">
+    <span>银行开户</span>
+    <span>未开始</span>
+  </i>
+  <em></em>
+  <i class="undo">
+    <span>国税局报到</span>
+    <span>未开始</span>
+  </i>
+   -->
+</div>
+<div class="service-myService-button">
+  <button type="button" id="myService_button" disabled="true">我要催单</button>
+</div>
+<div class="dialog-main" id="myService_dialog" style="display: none">
+  <p>您的需求已收到，我们将通知相关人员加速办理</p>
+  <button type="button">确定</button>
+</div>
+<script src="scripts/jquery.min.js"></script>
+<script src="scripts/show_dialog.min.js"></script>
+<script src="/scripts/show_loading.min.js"></script>
+<script src="/scripts/common/common.js"></script>
+<script src="/scripts/common/module.js"></script>
+<script src="/js/service/myservice_detail.js"></script>
+<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+<script src="js/wechatShare.js"></script>
+<script src="/js/count.js"></script>
+</body>
+</html>

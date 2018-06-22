@@ -1,0 +1,83 @@
+<!Doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, width=device-width">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="description" content="亿账柜依托科技创新技术，颠覆传统的财税代账服务，为企业提供从公司注册、代理记账到政府项目申请、公司上市等服务， 致力于成为中国最大的中小企业财税共享服务中心">
+  <meta name="keywords" content="公司注册，代理记账，公司变更，商标注册，财税服务，亿账柜">
+  <meta name="format-detection" content="telephone=no" />
+  <meta name="wap-font-scale" content="no">
+  <meta name="mobile-web-app-capable" content="yes"/>
+  <meta name="apple-mobile-web-app-capable" content="yes"/>
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  <title>e账柜-项目申报推广</title>
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon"/>
+  <link rel="app-touch-icon" href="/favicon.ico"/>
+  <link rel="stylesheet" href="/styles/base.min.css">
+  <link rel="stylesheet" href="/styles/promotion.min.css">
+</head>
+<body class="noMargin">
+<div class="promotion-xiangmushenbao">
+  <div class="promotion-images">
+    <img class="img" src="/images/promotion/xiangmushenbao1.jpg">
+  </div>
+  <div class="promotion-inputBox">
+    <div class="promotion-inputBox-item">
+      <label class="label">
+        <input class="input" type="text" placeholder="请输入公司名称" id="xiangmushenbao_company">
+      </label>
+    </div>
+    <div class="promotion-inputBox-item">
+      <label class="label">
+        <select class="select" id="xiangmushenbao_option">
+          <option value="0">请选择公司年限</option>
+          <option value="1">1年以内</option>
+          <option value="2">1到3年</option>
+          <option value="3">3年以上</option>
+        </select>
+        <i class="iconfont icon-xiajiantou"></i>
+      </label>
+    </div>
+    <div class="promotion-inputBox-item">
+      <label class="label">
+        <input class="input" type="tel" placeholder="请输入联系电话" id="xiangmushenbao_tel">
+      </label>
+      <button type="button" class="button" id="xiangmushenbao_submit">立即查询</button>
+    </div>
+  </div>
+</div>
+<div class="dialog-main" id="xiangmushenbao_dialog">
+  <div class="closeButton">×</div>
+  <img class="img" src="/images/promotion/xiangmushenbao2.png">
+  <div class="title">
+    <p>
+      查询结果：您的企业今年最高可获<span id="xiangmushenbao_dialog_number">111</span>万政府补贴！
+    </p>
+  </div>
+  <a class="link" href="#"></a>
+</div>
+<script src="/scripts/jquery.min.js"></script>
+<script src="/scripts/show_dialog.min.js"></script>
+<script>
+  $(document).ready(function () {
+    var myRecommendation_dialog = new Dialog('#xiangmushenbao_dialog', {});
+    $('#xiangmushenbao_submit').click(function () {
+      var val = $('#xiangmushenbao_option').val();
+      switch (val){
+        case '0':return;
+        case '1': $('#xiangmushenbao_dialog_number').text('50');
+        break;
+        case '2': $('#xiangmushenbao_dialog_number').text('200');
+        break;
+        case '3': $('#xiangmushenbao_dialog_number').text('300');
+        break;
+      }
+      myRecommendation_dialog.show_dialog();
+    })
+    myRecommendation_dialog.find('.closeButton').click(function () {
+      myRecommendation_dialog.remove_dialog();
+    })
+  });
+</script>
+</body>

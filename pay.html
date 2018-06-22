@@ -1,0 +1,74 @@
+<script>
+var isWeiXinBoolean = false;
+function isWeiXin(){
+    var ua = window.navigator.userAgent.toLowerCase();
+    if(ua.match(/MicroMessenger/i) == 'micromessenger'){
+    	isWeiXinBoolean =  true;
+    }else{
+    	isWeiXinBoolean =  false;
+    }
+  
+}
+isWeiXin();
+var url = location.href;
+
+if(url.indexOf("aOrderPay") != -1){
+	if(isWeiXinBoolean){
+	
+		var index = url.lastIndexOf("/");
+		var indexdian = url.lastIndexOf(".");
+		var code = url.substring(index+1, indexdian);
+		
+		 url = "http://m.zgcfo.com/service100gonghost/pay/wechatPay/redirectMobilePay/"+code+".html"//重定向域名
+			
+		location.href = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx1daf95d4275b0be1&redirect_uri="+encodeURIComponent(url) +"&response_type=code&scope=snsapi_base&state=STATE#wechat_redirect"
+	}
+}
+</script>
+
+<!Doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="description" content="亿账柜依托科技创新技术，颠覆传统的财税代账服务，为企业提供从公司注册、代理记账到政府项目申请、公司上市等服务， 致力于成为中国最大的中小企业财税共享服务中心">
+  <meta name="keywords" content="公司注册，代理记账，公司变更，商标注册，财税服务，亿账柜">
+  <title>e账柜-支付</title>
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="/styles/base.min.css">
+  <link rel="stylesheet" href="/styles/pay.min.css">
+</head>
+<body class="white">
+
+<header class="header">
+  <div class="header-toBack" onclick="location.href='/myOrder.html'"><i class="iconfont icon-zuojiantou"></i></div>
+  <span class="header-title">支付</span>
+</header>
+
+<div class="pay-top">
+  <p>您的订单已经成功提交！</p>
+  <p>订单编号：<span id="pay-id"></span></p>
+</div>
+<div class="pay-product">
+ </div>
+
+
+<div class="pay-payWay">
+  <p>付款方式</p>
+   <button type="button" class="pay-payWay-ALIPAY active"><img src="/images/ALIPAY.png" alt="支付宝"></button>
+  <button type="button" class="pay-payWay-wechatPAY active"><img src="/images/wechatPAY.png" alt="微信支付"></button>
+ </div>
+<div class="pay-info">
+  <p>请您及时付款，以便订单尽快处理！</p>
+</div>
+<div class="pay-footer">
+  <div>合计:<span>￥<strong id="pay_sum"></strong></span></div>
+  <div><button type="button" id="pay_submit">去付款</button></div>
+</div>
+<script src="/scripts/jquery.min.js"></script>
+<script src="/js/common.js"></script>
+<script src="/js/pay.js"></script>
+<script src="/js/count.js"></script>
+</body>
+</html>

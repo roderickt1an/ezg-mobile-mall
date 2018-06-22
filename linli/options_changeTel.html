@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>e账柜-更改手机号</title>
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="styles/base.min.css">
+  <link rel="stylesheet" href="styles/options.min.css">
+</head>
+<body>
+
+
+
+
+<header class="header">
+  <div class="header-toBack" onclick="history.go(-1);"><i class="iconfont icon-zuojiantou"></i></div>
+  <span class="header-title">更改手机号</span>
+</header>
+
+
+
+
+
+<div class="changeTel-input">
+  <label class="changeTel-input-item">
+    <input type="password" placeholder="请填写登录密码" id="changeTel_password">
+  </label>
+  <label class="changeTel-input-item">
+    <input type="tel" placeholder="请填写原手机号" id="changeTel_oldTel">
+  </label>
+  <label class="changeTel-input-item">
+    <input type="text" placeholder="请填写验证码" id="changeTel_oldTel">
+    <button type="button" id="changeTel_getVerificationCode_old">发送验证码</button>
+  </label>
+</div>
+<p  class="changeTel-info" style="display: none">
+  密码或验证码错误，请重新输入！
+</p>
+<div class="changeTel-button">
+  <button type="button" id="changeTel_button_old">下一步</button>
+</div>
+
+<script src="scripts/jquery.min.js"></script>
+<script src="/scripts/setTime.min.js"></script>
+<script>
+  $(document).ready(function () {
+    $('#changeTel_getVerificationCode_old').click(function () {
+//      验证码按钮触发事件，建议完成Ajax后再调用计时器
+      setTime($(this), 10);
+    })
+    $('#changeTel_button_old').click(function () {
+      location.href='options_changeTel2.html';
+    })
+  });
+</script>
+</body>
+</html>

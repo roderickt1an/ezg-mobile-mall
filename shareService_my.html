@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>e账柜-服务动态</title>
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="styles/base.min.css">
+  <link rel="stylesheet" href="styles/service.min.css">
+</head>
+<body class="white">
+
+
+<header class="header">
+  <div class="header-toBack" onclick="location.href='/service.html';"><i class="iconfont icon-zuojiantou"></i></div>
+  <span class="header-title">服务动态</span>
+</header>
+
+
+<div class="service-myService-main">
+
+<!--  
+  <i>
+    <span>核名</span>
+    <span>已结束</span>
+  </i>
+  <em></em>
+  <i>
+    <span>办理工商执照</span>
+    <span>已结束</span>
+  </i>
+  <em></em>
+  <i class="doing">
+    <p class="service-myService-doing-start">开始时间</p>
+    <p>2016.10.30</p>
+    <p class="service-myService-doing-finish">预计完成时间</p>
+    <p>2016.10.30</p>
+    <span>刻章备案</span>
+    <span>正在执行</span>
+  </i>
+  <em></em>
+  <i class="undo">
+    <span>银行开户</span>
+    <span>未开始</span>
+  </i>
+  <em></em>
+  <i class="undo">
+    <span>国税局报到</span>
+    <span>未开始</span>
+  </i>
+   -->
+</div>
+<div class="service-myService-button">
+  <button type="button" id="myService_button">我要催单</button>
+</div>
+<div class="dialog-main" id="myService_dialog" style="display: none">
+  <p>您的需求已收到，我们将通知相关人员加速办理</p>
+  <button type="button">确定</button>
+</div>
+<script src="scripts/jquery.min.js"></script>
+<script src="scripts/show_dialog.min.js"></script>
+<script src="/scripts/common/common.js"></script>
+<script src="/scripts/common/module.js"></script>
+<script src="/js/count.js"></script>
+<script type="text/javascript">
+var validTimestamp = 1000*60*60*60;
+$(function(){
+	initDialog();
+	$('#myService_button').click(function () {
+		  error_dialog.setText("您的需求已收到，我们将通知相关人员加速办理!");
+		  error_dialog.show_dialog();
+	  });
+	var requestKey = getUrlParam("requestKey");
+	var accessToken = getUrlParam("accessToken");
+
+	
+	var url = TERMINAL_URL + '/jsonrest/http/HttpServiceInfo/1/getWorkOrderDetailByRequestKey';
+	
+	  $.post(url,{"requestKey":requestKey,"accessToken":accessToken,"validTimestamp":validTimestamp},function(re){//获取当前状态
+		  
+		  if(re.msgCode == 1){//表示成功
+			  console.log(re.entity);
+			  createServiceDetailData(re.entity);
+			
+		  }else{
+			  
+			  //失败，打印失败信息
+			  var error_dialog2 = new Dialog('#error_dialogz', {
+				  time: 1000000/*,
+				  callbackAfter:function(){
+					//  location.href = '/login_usePW.html';
+					  error_dialog2.remove_dialog();
+				  }*/
+				});
+				error_dialog2.setButton({"errorbutton2":'确定'});
+				$("#errorbutton2").click(function(){
+					location.href = '/login_usePW.html';
+					error_dialog2.remove_dialog();
+				});
+			  
+				 error_dialog2.setText(re.msg);
+				  error_dialog2.show_dialog();
+		  }
+		 
+		  console.log(re);
+		  
+		  
+	  },"json");
+	
+
+});
+
+function createServiceDetailData(obj){
+	  if (obj){
+		  var _entity = obj;	
+		  var product = eval('(' + _entity + ')');
+		  var companyName = product.companyName;
+		  var productProcess = product.productProcess;
+		  
+		  $(".header-title").html(companyName);
+		  var html="";
+		  var p_obj ;
+		  var s_obj;
+		  var s_index;
+
+		  for(var i= 0, l=productProcess.length; i<l; i++){
+			  s_index = i+1 + '';
+			  s_obj = productProcess[i];
+			  p_obj = s_obj[s_index];
+			  html += '';
+			  if( i == 0){
+				  if(!isNull(p_obj.startDate)){
+					  html+="<div style='text-align: center;'>开始时间:"+p_obj.startDate+"</div>";
+					   html+=" <div style='height:2rem'></div>";
+				  }
+				 
+			  }
+		
+			  if (i > 0)
+				  html += '<em></em>' ;
+			  	
+			  if ( p_obj.content == '已结束'){
+				  console.log(p_obj);
+				  var endDate = p_obj.endDate;
+				  if(!isNull(endDate)){
+					  endDate = endDate.substring(0,10);
+				  }
+				  html += '<i>' ;
+				  html += '<span>'+p_obj.processName+'</span>';
+				  html += '<span>已结束&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp'+endDate+'</span>';				  
+				  html += '</i>' ;
+			  }else if ( p_obj.content == '未开始'){
+				  html += '<i class="undo">' ;
+				  html += '<span>'+p_obj.processName+'</span>';
+				  html += '<span>未开始</span>';				  
+				  html += '</i>' ;
+			  }else if ( p_obj.content == '正在进行'){
+				  html += '<i >' ;
+		/*		  html += ' <p class="service-myService-doing-start">开始时间</p>';
+			      html += '<p>'+p_obj.startDate+'</p>';*/
+			/*	  html += '<p class="service-myService-doing-finish">预计完成时间</p>';
+				  html += '<p>'+p_obj.preEndDate+'</p>';*/
+				  html += '<span>'+p_obj.processName+'</span>';
+				  html += '<span>正在进行</span>';				  
+				  html += '</i>' ;
+			  }
+			 
+		  }
+		  $(".service-myService-main").html(html);
+	  
+	  }
+}
+
+</script>
+</body>
+</html>

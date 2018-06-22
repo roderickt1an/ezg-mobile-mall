@@ -1,0 +1,63 @@
+<!Doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="description" content="亿账柜依托科技创新技术，颠覆传统的财税代账服务，为企业提供从公司注册、代理记账到政府项目申请、公司上市等服务， 致力于成为中国最大的中小企业财税共享服务中心">
+  <meta name="keywords" content="公司注册，代理记账，公司变更，商标注册，财税服务，亿账柜">
+  <title>e账柜-我要推荐</title>
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="styles/base.min.css">
+  <link rel="stylesheet" href="styles/myRecommendation.min.css">
+</head>
+<body>
+
+
+
+
+<header class="header">
+  <div class="header-toBack" onclick="history.go(-1);"><i class="iconfont icon-zuojiantou"></i></div>
+  <span class="header-title">我的推荐</span>
+</header>
+
+
+
+
+
+<div class="myRecommendation-get">
+  <label class="myRecommendation-get-item">
+    <span>姓　　名：</span>
+    <input type="text" placeholder="请填写姓名" id="myRecommendation_name">
+  </label>
+  <label class="myRecommendation-get-item">
+    <span>联系方式：</span>
+    <input type="tel" placeholder="请填写手机号" id="myRecommendation_tel">
+  </label>
+  <label class="myRecommendation-get-item-textarea">
+    <span>备注内容：</span>
+    <textarea id="myRecommendation_remark"></textarea>
+  </label>
+  <p class="myRecommendation-get-info"><i class="iconfont icon-sanjiao"></i>推荐客户即有机会获得红包返现</p>
+</div>
+<div class="myRecommendation-get-button">
+  <button type="button" id="myRecommendation_submit">提交</button>
+</div>
+<script src="scripts/jquery.min.js"></script>
+<script src="scripts/show_dialog.min.js"></script>
+
+<script>
+  $(document).ready(function () {
+    var myRecommendation_dialog = new Dialog('#myRecommendation_dialog', {});
+    myRecommendation_dialog.setText('<p>您已成功提交，成交后小e 将在第一时间与您联系！</p>');
+    myRecommendation_dialog.setButton({
+      myRecommendation_dialog_yes:'确定'
+    })
+    $('#myRecommendation_submit').click(function () {
+      myRecommendation_dialog.show_dialog();
+    })
+  });
+</script>
+</body>
+</html>

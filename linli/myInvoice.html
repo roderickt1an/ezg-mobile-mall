@@ -1,0 +1,103 @@
+<!Doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="description" content="亿账柜依托科技创新技术，颠覆传统的财税代账服务，为企业提供从公司注册、代理记账到政府项目申请、公司上市等服务， 致力于成为中国最大的中小企业财税共享服务中心">
+  <meta name="keywords" content="公司注册，代理记账，公司变更，商标注册，财税服务，亿账柜">
+  <title>e账柜-我的发票</title>
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="styles/base.min.css">
+  <link rel="stylesheet" href="styles/myInvoice.min.css">
+</head>
+<body>
+
+
+
+<header class="header">
+  <div class="header-toBack" onclick="history.go(-1);"><i class="iconfont icon-zuojiantou"></i></div>
+  <span class="header-title">我的发票</span>
+  <div class="header-mean" onclick="this.className=='header-mean'?this.className='header-mean open':this.className='header-mean'">
+    <i class="iconfont icon-caidan"></i>
+    <ul class="header-mean-list">
+      <li class="item">
+        <a  href="/index.html">
+          <i class="iconfont icon-shouye"></i>
+          <span class="text">首页</span>
+        </a>
+      </li>
+      <li class="item">
+        <a href="/class.html">
+          <i class="iconfont icon-fenlei"></i>
+          <span class="text">产品列表</span>
+        </a>
+      </li>
+      <li class="item">
+        <a href="/service.html">
+          <i class="iconfont icon-fuwu"></i>
+          <span class="text">我的服务</span>
+        </a>
+      </li>
+      <li class="item">
+        <a href="/center.html">
+          <i class="iconfont icon-gerenzhongxin"></i>
+          <span class="text">个人中心</span>
+        </a>
+      </li>
+      <li class="item">
+        <a href="/cart.html">
+          <i class="iconfont icon-gouwuche"></i>
+          <span class="text">购物车</span>
+        </a>
+      </li>
+      <li class="item">
+        <a href="/login_usePW.html">
+          <i class="iconfont icon-denglu"></i>
+          <span class="text">登录</span>
+        </a>
+      </li>
+      <li class="item">
+        <a href="/register.html">
+          <i class="iconfont icon-zhuce"></i>
+          <span class="text">注册</span>
+        </a>
+      </li>
+    </ul>
+  </div>
+</header>
+
+
+
+
+
+
+<div class="invoice-noEmpty">
+  <div class="invoice-main">
+    
+    <div class="invoice-item">
+      <p class="invoice-item-title">抬头：<span>广州亿账柜信息科技有限公司</span></p>
+      <p class="invoice-item-price">开票金额：<span>￥<strong>698</strong>元</span></p>
+      <div class="invoice-item-state submitted">已提交</div>
+      <div class="invoice-item-date">提交日期：<span>2016.11.30</span></div>
+    </div>
+    
+    <div class="invoice-item">
+      <p class="invoice-item-title">抬头：<span>广州亿账柜信息科技有限公司</span></p>
+      <p class="invoice-item-price">开票金额：<span>￥<strong>698</strong>元</span></p>
+      <div class="invoice-item-state submitted">已提交</div>
+      <div class="invoice-item-date">提交日期：<span>2016.11.30</span></div>
+    </div>
+    
+  </div>
+  <div class="invoice-footer">
+    <a href="myInvoice_get.html">开发票</a>
+  </div>
+</div>
+<div class="invoice-empty" style="display:none;">
+  <p>您尚未开发票</p>
+  <a href="myInvoice_get.html">开发票</a>
+</div>
+<script src="scripts/jquery.min.js"></script>
+</body>
+</html>

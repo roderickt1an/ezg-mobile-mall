@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>e账柜-帐号管理</title>
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="styles/base.min.css">
+  <link rel="stylesheet" href="styles/options.min.css">
+</head>
+<body>
+
+<header class="header">
+  <div class="header-toBack" onclick="location.href='/options.html'"><i class="iconfont icon-zuojiantou"></i></div>
+  <span class="header-title">帐号管理</span>
+</header>
+
+<div class="changeName-input">
+
+ <label class="changeName-input-item">
+    <input type="text" placeholder="请输入姓名" id="changeName_name">
+  </label>
+</div>
+<p class="changeName-tip">
+  以英文字母或汉字开头，限4-16个字符，一个汉字为2个字符
+</p>
+<p  class="changeName-info" style="display:none">
+  您输入的名字格式不正确
+</p>
+<div class="changeName-button">
+  <button type="button" id="changeName_button">确定</button>
+</div>
+
+<script src="scripts/jquery.min.js"></script>
+<script src="/js/count.js"></script>
+<script src="/scripts/show_dialog.min.js"></script>
+<script src="/js/common.js"></script>
+<script src="/js/options_accountSet_changeName.js"></script>
+<script>
+</script>
+</body>
+</html>

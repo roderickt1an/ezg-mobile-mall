@@ -1,0 +1,129 @@
+<!Doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>e账柜-产品详细</title>
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="styles/base.min.css">
+  <link rel="stylesheet" href="styles/productDetail.min.css">
+</head>
+<body>
+
+
+
+
+<header class="header">
+  <div class="header-toBack" onclick="history.go(-1);"><i class="iconfont icon-zuojiantou"></i></div>
+  <span class="header-title">产品详细</span>
+</header>
+
+
+
+
+
+<div class="productDetail-banner">
+  <img src="images/bannerTest.jpg" alt="零申报代理记账">
+</div>
+<div class="productDetail-title">
+  <p>零申报代理记账</p>
+  <p class="productDetail-title-price">
+    <span>￥<strong>2555</strong></span>
+    <i style="text-decoration: line-through;">原价￥21600</i>
+  </p>
+</div>
+<div class="productDetail-option">
+  <p>服务内容</p>
+  <div class="productDetail-option-buttonList">
+    <button type="button">有限责任公司</button>
+    <button type="button">分公司注册</button>
+    <button type="button">港澳台公司</button>
+    <button type="button">合伙企业注册</button>
+    <button type="button">内资办事处</button>
+  </div>
+  <p>地区</p>
+  <div class="productDetail-option-chooseArea">
+    <input id="chooseArea" type="text" readonly="readonly" placeholder="请选择地区" autocomplete="off" onfocus="this.blur();"/>
+    <input id="chooseAreaValue" type="hidden" value="20,234,504"/>
+  </div>
+</div>
+<div class="productDetail-detail">
+  <p>服务介绍</p>
+  <div class="productDetail-detail-box">
+    <p>服务描述</p>
+    <p>
+      1、帮助企业核名，并领取核名通知书<br>
+      2、网上选取经营范围<br>
+      3、相关文件采集与编写<br>
+      4、办理并领取营业执照正副本<br>
+    </p>
+  </div>
+  <div class="productDetail-detail-box">
+    <p>预计服务时间</p>
+    <p>
+      20个工作日
+    </p>
+  </div>
+  <div class="productDetail-detail-box">
+    <p>所需材料</p>
+    <p>
+      身份证、房产租赁合同、地址证明、 章程、设立申请书
+    </p>
+  </div>
+  <div class="productDetail-detail-box">
+    <p>所得材料</p>
+    <p>
+      营业执照（正副本）、公司章程、房屋租赁合同、公司印章及 印鉴留存卡
+    </p>
+  </div>
+</div>
+<div class="productDetail-footer">
+  <div class="joinCart">
+    <button class="button" type="button" id="joinCart" disabled="disabled">加入购物车</button>
+  </div>
+  <div class="tel">
+    <a href="#" class="button">电话咨询</a>
+  </div>
+  <div class="online">
+    <a href="#" class="button">在线咨询</a>
+  </div>
+  <div style="display: none" class="ask">
+    <a href="#" class="button">联系客服</a>
+  </div>
+</div>
+
+
+<a class="floatButton" href="cart.html" data-count="5">
+  <i class="iconfont icon-gouwuche"></i>
+</a>
+
+
+
+
+
+<script src="scripts/jquery.min.js"></script>
+<script src="scripts/LArea.min.js"></script>
+<script src="scripts/LAreaData2.js"></script>
+<script>
+  $(document).ready(function () {
+    var area2 = new LArea();
+    area2.init({
+      'trigger': '#chooseArea',
+      'valueTo': '#chooseAreaValue',
+      'keys': {
+        id: 'value',
+        name: 'text'
+      },
+      'type': 2,
+      'data': [provs_data, citys_data, dists_data]
+    });
+    $('.productDetail-option-buttonList>button').each(function () {
+      $(this).click(function () {
+        $(this).addClass('active').siblings().removeClass('active');
+      })
+    })
+  });
+</script>
+</body>
+</html>

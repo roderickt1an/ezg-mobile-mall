@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>e账柜-个人中心</title>
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="styles/base.min.css">
+  <link rel="stylesheet" href="styles/center.min.css">
+</head>
+<body>
+ 
+<div class="center-top">
+  <div class="center-top-head" id="person_head">
+    <img src="images/person.png">
+  </div>
+ 
+  <p><a id="login_state"></a></p>
+</div>
+<div class="center-main">
+  <a class="center-main-item" href="cart.html">
+    <i class="iconfont icon-gouwuche"></i>
+    我的购物车
+    <i class="iconfont icon-youjiantou"></i>
+  </a>
+  <a class="center-main-item" href="myOrder.html">
+    <i class="iconfont icon-wodedingdan"></i>
+    我的订单
+    <i class="iconfont icon-youjiantou"></i>
+  </a>
+  <a class="center-main-item" href="coupon.html">
+    <i class="iconfont icon-daijinjuan"></i>
+    我的代金券
+    <i class="iconfont icon-youjiantou"></i>
+  </a>
+  <a class="center-main-item" href="myRecommendation.html">
+    <i class="iconfont icon-tuijian"></i>
+    我的推荐
+    <i class="iconfont icon-youjiantou"></i>
+  </a>
+  <a class="center-main-item" href="myInvoice.html">
+    <i class="iconfont icon-fapiao"></i>
+    我的发票
+    <i class="iconfont icon-youjiantou"></i>
+  </a>
+   <!-- <a class="center-main-item" href="/wechat/about.html">
+    <i class="iconfont icon-about"></i>
+	 关于我们
+    <i class="iconfont icon-youjiantou"></i>
+  </a> -->
+   <a class="center-main-item" href="/about.html">
+    <i class="iconfont icon-about"></i>
+    	关于我们
+    <i class="iconfont icon-youjiantou"></i>
+     <span class="version">v1.0.1.8</span>
+  </a>
+  <a class="center-main-item" href="options.html">
+    <i class="iconfont icon-shezhi"></i>
+    设置
+    <i class="iconfont icon-youjiantou"></i>
+  </a>
+
+</div>
+<footer class="footer">
+ <a class="footer-cell" href="/">
+    <span class="footer-cell-icon">
+      <i class="iconfont icon-shouye"></i>
+    </span>
+    <p>首页</p>
+  </a>
+<!--   <a class="footer-cell" href="/class/gszc.html">
+    <span class="footer-cell-icon">
+      <i class="iconfont icon-fenlei"></i>
+    </span>
+    <p>分类</p>
+  </a> -->
+  <a class="footer-cell" href="/kfdialog.htm">
+    <span class="footer-cell-icon">
+      <i class="iconfont icon-zaixiankefuzhuanhuan"></i>
+    </span>
+    <p>在线咨询</p>
+  </a>
+  <a class="footer-cell" href="/service.html">
+    <span class="footer-cell-icon ">
+      <i class="iconfont icon-fuwu"></i>
+    </span>
+    <p>我的服务</p>
+  </a>
+  <a class="footer-cell" href="/center.html">
+    <span class="footer-cell-icon">
+      <i class="iconfont icon-gerenzhongxin"></i>
+    </span>
+    <p>个人中心</p>
+  </a>
+</footer>
+
+
+<script src="scripts/jquery.min.js"></script>
+<script src="/scripts/common/common.js"></script>
+<script src="/scripts/common/module.js"></script>
+<script src="/js/count.js"></script>
+<script type="text/javascript">
+	var isClick =getCookie("serviceIsClick");
+	if(!isClick){
+		$(".footer-cell:eq(2)").addClass("tip");
+	}
+</script>
+<script>
+  $(document).ready(function () {
+    $('.footer-cell-icon').find('.icon-gerenzhongxin').parent().parent().addClass('active');
+    $('#person_head').css('background-image','url(images/person.png)');
+    var obj = loginStatusData();
+    var isLogin = false;
+	if (obj && obj.msgCode == 1){
+		 
+		isLogin = true;
+		var text = obj.entity.userName || obj.entity.userCode;
+		
+    	 $('#login_state').attr('href','/options.html').text(text);
+    	 if(!isNull(obj.entity.headImg)){
+    
+    		 var url = obj.entity.headImg;
+    		 if(!url.startWith("http")){
+    				url = UPLOAD_URL+obj.entity.headImg+"?"+new Date().getTime();
+    			
+				}
+    			
+    		    $('#person_head>img').attr('src',url);
+ 		
+ 		}
+    }else{
+    
+    	$('.icon-shezhi').parent().css("display","none");
+    	 $('#login_state').attr('href','login_usePW.html').text('请点击登录');
+    }
+	$("#person_head").click(function(){
+
+		if(!isLogin){
+			window.location.href = "/login_usePW.html";
+		}else{
+			window.location.href = 	"/options.html";
+		}
+	})
+	
+   
+  });
+</script>
+</body>
+</html>

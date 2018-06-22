@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>e账柜-设置</title>
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="styles/base.min.css">
+  <link rel="stylesheet" href="styles/options.min.css">
+</head>
+<body>
+
+
+<script type="text/javascript" src="/js/head_two_level.js"></script>
+
+<script type="text/javascript">
+document.getElementById("header-title").innerText = "设置";
+function headerToBack (){
+	location.href = "/center.html";
+}
+</script>
+<div class="options-group">
+  <a class="options-item" href="options_accountSet.html">
+    帐号管理
+    <i class="iconfont icon-youjiantou"></i>
+  </a>
+  <a class="options-item" href="options_changeTel.html">
+    手机号码
+    <i class="iconfont icon-youjiantou"></i>
+  </a>
+</div>
+<div class="options-group">
+  <a class="options-item" href="options_opinion.html">
+    反馈意见
+    <i class="iconfont icon-youjiantou"></i>
+  </a>
+</div>
+<script src="scripts/jquery.min.js"></script>
+<script src="js/common.js"></script>
+<script src="/js/count.js"></script>
+<div class="options-group">
+  <a class="options-item" href="javascript:exitLogin()">
+    退出登录
+    <i class="iconfont icon-youjiantou"></i>
+  </a>
+</div>
+
+<script type="text/javascript">
+var obj = loginStatusData();
+if (obj && obj.msgCode == 1){
+}else{
+	location.href ="/login_usePW.html";
+}
+</script>
+</body>
+</html>

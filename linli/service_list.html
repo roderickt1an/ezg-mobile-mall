@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>e账柜-指标列表</title>
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="styles/base.min.css">
+  <link rel="stylesheet" href="styles/service.min.css">
+</head>
+<body>
+
+
+
+
+
+
+
+<header class="header themeBG">
+  <div class="header-toBack" onclick="history.go(-1);"><i class="iconfont icon-zuojiantou"></i></div>
+  <label>
+    <input class="header-input" type="text" id="chooseDate" readonly="readonly" name="input_date" placeholder="请输入日期" autocomplete="off" onfocus="this.blur();"/>
+    <i class="iconfont icon-xiajiantou"></i>
+  </label>
+</header>
+
+
+<div class="service-list">
+  <a href="service_data.html" class="service-list-item">
+    <i class="iconfont icon-baobiao"></i>
+    <p>资产负债表</p>
+  </a>
+  <a href="service_data.html" class="service-list-item">
+    <i class="iconfont icon-baobiao1"></i>
+    <p>利润表</p>
+  </a>
+  <a href="service_data.html" class="service-list-item">
+    <i class="iconfont icon-baobiao2"></i>
+    <p>现金流量表</p>
+  </a>
+</div>
+<div class="service-list-info">
+  <p>说明：</p>
+  <p>以上为财务三大报表，报表数据在每月16号前进行更新，可查看上月数据。</p>
+</div>
+<script src="scripts/jquery.min.js"></script>
+<script src="scripts/LCalendar.min.js"></script>
+<script>
+  $(function () {
+    var calendar = new LCalendar();
+    calendar.init({
+      'trigger': '#chooseDate',//标签id
+      'type': 'ym',//date 调出日期选择 datetime 调出日期时间选择 time 调出时间选择 ym 调出年月选择
+      'minDate':'1900-1-1',//最小日期 注意：该值会覆盖标签内定义的日期范围
+      'maxDate':'2016-3-18'//最大日期 注意：该值会覆盖标签内定义的日期范围
+    });
+  })
+</script>
+</body>
+</html>

@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>e账柜-帐号管理</title>
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="styles/base.min.css">
+  <link rel="stylesheet" href="styles/options.min.css">
+</head>
+<body>
+
+
+
+
+<header class="header">
+  <div class="header-toBack" onclick="history.go(-1);"><i class="iconfont icon-zuojiantou"></i></div>
+  <span class="header-title">帐号管理</span>
+</header>
+
+
+
+
+
+<div class="accountSet-group">
+  <button class="accountSet-item">
+    头像
+    <input accept="image/*" type="file" id="accountSet_input">
+    <span id="accountSet_img"><img src="images/person.png"></span>
+    <i class="iconfont icon-youjiantou"></i>
+  </button>
+  <a href="options_accountSet_changeName.html" class="accountSet-item">
+    姓名
+    <span id="accountSet_name">老王</span>
+    <i class="iconfont icon-youjiantou"></i>
+  </a>
+  <button class="accountSet-item">
+    性别
+    <span id="accountSet_sex">男</span>
+    <select id="accountSet_sexChoose">
+      <option>男</option>
+      <option>女</option>
+    </select>
+    <i class="iconfont icon-youjiantou"></i>
+  </button>
+</div>
+<div class="accountSet-group">
+  <button class="accountSet-item">
+    e账柜帐号
+    <span id="accountSet_tel">13500000000</span>
+  </button>
+  <a href="options_accountSet_changePassword.html" class="accountSet-item">
+    登录密码
+    <i class="iconfont icon-youjiantou"></i>
+  </a>
+  <button class="accountSet-item">
+    地区
+    <input id="chooseArea" type="text" readonly="readonly" placeholder="请选择地区" autocomplete="off" onfocus="this.blur();"/>
+    <input id="chooseAreaValue" type="hidden" value="20,234,504"/>
+    <i class="iconfont icon-youjiantou"></i>
+  </button>
+</div>
+<script src="scripts/jquery.min.js"></script>
+<script src="scripts/LArea.min.js"></script>
+<script src="scripts/LAreaData2.js"></script>
+
+<script>
+  $(document).ready(function () {
+    var area2 = new LArea();
+    area2.init({
+      'trigger': '#chooseArea',
+      'valueTo': '#chooseAreaValue',
+      'keys': {
+        id: 'value',
+        name: 'text'
+      },
+      'type': 2,
+      'data': [provs_data, citys_data, dists_data]
+    });
+    $('#accountSet_sexChoose').change(function () {
+      $('#accountSet_sex').text($('#accountSet_sexChoose').val())
+    })
+  })
+</script>
+</body>
+</html>

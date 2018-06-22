@@ -1,0 +1,109 @@
+<!Doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="description" content="亿账柜依托科技创新技术，颠覆传统的财税代账服务，为企业提供从公司注册、代理记账到政府项目申请、公司上市等服务， 致力于成为中国最大的中小企业财税共享服务中心">
+  <meta name="keywords" content="公司注册，代理记账，公司变更，商标注册，财税服务，亿账柜">
+  <title>e账柜-我的推荐</title>
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="styles/base.min.css">
+  <link rel="stylesheet" href="styles/myRecommendation.min.css">
+</head>
+<body class="white">
+<script type="text/javascript" src="/js/head_two_level.js"></script>
+<script type="text/javascript">
+document.getElementById("header-title").innerText = "我要推荐";
+function headerToBack (){
+	location.href = "/center.html";
+}
+</script>
+<div class="myRecommendation-noEmpty">
+	 <div class="myRecommendation-main">
+	 </div>
+	<div class="myRecommendation-footer">
+	
+	    <a href="myRecommendation_get.html">推荐客户</a>
+
+	</div>
+</div>
+<div class="myRecommendation-empty" style="display: none">
+ 	 
+ 	 <p>您尚未有推荐记录，点击推荐客户，马上试试吧！</p>	
+	  <a href="myRecommendation_get.html">推荐客户</a>
+	
+</div>
+<script src="scripts/jquery.min.js"></script>
+<script src="/scripts/common/common.js"></script>
+<script src="/scripts/common/module.js"></script>
+<script src="/scripts/common/jbase64.js"></script>
+<script src="/js/myRecommendation.js"></script>
+<script src="/js/count.js"></script>
+</body>
+<script type="text/javascript">
+ $(document).ready(function(){
+ 	var isLogin =validLoginStatus(); //src="/scripts/common/module.js"
+ 	if(isLogin){//是否已经登陆
+ 		currentPage = getUrlParam("currentPage");
+ 		if(currentPage == ""){
+ 			currentPage = 1;			
+ 		}
+ 		if(isNaN(currentPage)){
+ 			currentPage = 1;
+ 		}
+ 		if(currentPage<=0){
+ 			currentPage = 1;
+ 		}
+ 		showMyRecommendation();
+
+ 	}else{ 
+ 		location.href = 'login_usePW.html';
+ 	}
+ });
+//初始化首页
+ function showMyRecommendation(){
+ 	 $.post("/service100gonghost/jsonrest/information/Generalize/0/findByPhoneNumber",
+     				  {},
+     			function(re){
+     					  console.log(re)
+     					  var recommendation = re.entity.resultList; 
+     					  if(re.msgCode == 1){
+     						  if(recommendation.length<=0){
+     								$(".myRecommendation-empty").hide();
+    								 $(".myRecommendation-noEmpty").show();
+     							}else{
+     								$(".myRecommendation-empty").show();
+    								 $(".myRecommendation-noEmpty").hide();
+     					 		 }
+     						  var recommendationHtml = "";
+     						  if(recommendation.length == 0){
+     								//location.href = "myRecommendation_empty.html";
+     								$(".myRecommendation-empty").show();
+     								 $(".myRecommendation-noEmpty").hide();
+     								return;
+     							}
+     						  for(var i = 0;i<recommendation.length;i++){
+     						  	  var recomm = recommendation[i];
+    							  
+     							  recommendationHtml +='<div class="myRecommendation-item">';
+     							  recommendationHtml +='<p class="myRecommendation-item-name" >被推荐人：';
+     							  recommendationHtml +='<span>'+recomm.userName+'</span></p>';
+     							  recommendationHtml +='<p class="myRecommendation-item-tel" >联系电话：';
+     							  recommendationHtml +='<span>'+recomm.userMobile+'</span></p>';
+     							  recommendationHtml +='<p class="myRecommendation-item-remark" >备注：';
+     							  recommendationHtml +='<span>'+recomm.userMemo+'</span></p>';
+     							  recommendationHtml +='</div>';
+     						  }
+     						  $(".myRecommendation-item").html(recommendationHtml);
+     					  }else {
+     						 $(".myRecommendation-empty").show();
+     						 $(".myRecommendation-noEmpty").hide();
+     						 /*  location.href = "myRecommendation_empty.html"; */
+     						}
+    						
+    			 
+     		  },"json")
+ };
+</script>
+</html>

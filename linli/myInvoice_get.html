@@ -1,0 +1,119 @@
+<!Doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="description" content="亿账柜依托科技创新技术，颠覆传统的财税代账服务，为企业提供从公司注册、代理记账到政府项目申请、公司上市等服务， 致力于成为中国最大的中小企业财税共享服务中心">
+  <meta name="keywords" content="公司注册，代理记账，公司变更，商标注册，财税服务，亿账柜">
+  <title>e账柜-开发票</title>
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="styles/base.min.css">
+  <link rel="stylesheet" href="styles/myInvoice.min.css">
+</head>
+<body>
+
+
+
+
+<header class="header">
+  <div class="header-toBack" onclick="history.go(-1);"><i class="iconfont icon-zuojiantou"></i></div>
+  <span class="header-title">我的发票</span>
+</header>
+
+
+
+
+
+<div class="invoice-get">
+  <label class="invoice-get-item">
+    <span>发票抬头：</span>
+    <input type="text" placeholder="请填写公司抬头" id="invoice_title">
+  </label>
+  <label class="invoice-get-item">
+    <span>开票金额：</span>
+    <input type="text" placeholder="请填写开票金额（单位：元）" id="invoice_money">
+  </label>
+  <div class="invoice-get-item">
+    <span>领取方式：</span>
+    <label>
+      <div class="invoice-get-item-radio">
+        <input type="radio" name="invoice_postWay">
+        <i class="icon">✓</i>
+      </div>
+      <span>自取</span>
+    </label>
+    <label>
+      <div class="invoice-get-item-radio">
+        <input type="radio" name="invoice_postWay">
+        <i class="icon">✓</i>
+      </div>
+      <span>快递</span>
+    </label>
+  </div>
+  <label class="invoice-get-item">
+    <span>收件人　：</span>
+    <input type="text" placeholder="请填写收件人姓名" id="invoice_name">
+  </label>
+  <label class="invoice-get-item">
+    <span>联系方式：</span>
+    <input type="tel" placeholder="请填写手机号" id="invoice_phoneNumber">
+  </label>
+  <label class="invoice-get-item">
+    <span>所在地址：</span>
+    <input id="chooseArea" type="text" readonly="readonly" placeholder="请选择地址" autocomplete="off" onfocus="this.blur();"/>
+    <input id="invoice_area" type="hidden" value="20,234,504"/>
+  </label>
+  <label class="invoice-get-item">
+    <span>详细地址：</span>
+    <input type="text" placeholder="请填写详细地址" id="invoice_place">
+  </label>
+  <label class="invoice-get-item-textarea">
+    <span>备注：</span>
+    <textarea id="invoice_remark"></textarea>
+  </label>
+  <p class="invoice-get-info">开票金额小于1000元邮费需自付</p>
+</div>
+<div class="invoice-get-button">
+  <button type="button" id="invoice_submit">提交</button>
+</div>
+<script src="scripts/jquery.min.js"></script>
+<script src="scripts/LArea.min.js"></script>
+<script src="scripts/LAreaData2.js"></script>
+<script src="scripts/show_dialog.min.js"></script>
+
+<script>
+  $(document).ready(function () {
+    var area2 = new LArea();
+    area2.init({
+      'trigger': '#chooseArea',
+      'valueTo': '#invoice_area',
+      'keys': {
+        id: 'value',
+        name: 'text'
+      },
+      'type': 2,
+      'data': [provs_data, citys_data, dists_data]
+    });
+    var invoice_dialog = new Dialog('#invoice_dialog',{});
+    invoice_dialog.setText('<p>提交后将不能更改，是否确认提交</p>');
+    invoice_dialog.setButton({
+      invoice_dialog_yes:'是',
+      invoice_dialog_no:'否'
+    })
+    $('#invoice_submit').click(function () {
+      invoice_dialog.show_dialog();
+    })
+    $('#invoice_dialog_yes').click(function () {
+      invoice_dialog.setText('<p>提交成功</p>');
+      invoice_dialog.setButton({
+        yes:'确定'
+      })
+      $('#yes').click(function () {
+        invoice_dialog.remove_dialog();
+      })
+    })
+  });
+</script>
+</body>
+</html>

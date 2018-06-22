@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>e账柜-本月财税预警</title>
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="styles/base.min.css">
+  <link rel="stylesheet" href="styles/service.min.css">
+</head>
+<body>
+
+
+
+
+
+<header class="header themeBG">
+  <div class="header-toBack" onclick="history.go(-1);"><i class="iconfont icon-zuojiantou"></i></div>
+  <span class="header-title">本月财税预警</span>
+</header>
+
+
+
+
+<div class="service-empty" style="display: none">
+  <i class="iconfont icon-kaifazhong"></i>
+  <p>恭喜您，您的企业财务状况良好！~</p>
+  <a href="index.html">去逛逛</a>
+</div>
+<div class="service-warm" style="display: none">
+  <!-- <div class="service-warm-item">
+    <i class="iconfont">④</i><span class="important">实收资本</span>目前为0，公司基础的开支只能通过借款来弥补，对企业发展不利，报表的呈现也不太理想。
+  </div> -->
+
+  <div class="service-warm-item">
+    <i class="iconfont">①</i><span class="important">库存现金</span>余额过大,反映了企业现金管理不当,存在审计风险,应及时存入银行或者依情况计入往来科目。
+  </div>
+  <div class="service-warm-item">
+    <i class="iconfont">②</i><span class="important">招待费用</span>超过营业收入5‰的部分不能在税前扣除,请适当控制招待费用支出与营业收入的配比。
+  </div>
+  <div class="service-warm-item">
+    <i class="iconfont">③</i>企业目前<span class="important">银行存款余额较大</span>，建议将资金划分不同份数进行短中长期理财，提高资金使用效率，降低资金成本。
+  </div>
+</div>
+</body>
+<script src="scripts/jquery.min.js"></script>
+<script src="/scripts/common/common.js"></script>
+<script src="/scripts/common/module.js"></script>
+<script src="/scripts/show_loading.min.js"></script>
+<script src="/js/count.js"></script>
+<script type="text/javascript">
+$(document).ready(function () {
+    var obj = loginStatusData();
+    var isLogin = false;
+    var  numberStr = new Array();
+	
+    numberStr.push("①");
+    numberStr.push("②");
+    numberStr.push("③");
+    numberStr.push("④");
+    numberStr.push("⑤");
+    numberStr.push("⑥");
+    numberStr.push("⑦");
+    numberStr.push("⑧");
+    numberStr.push("⑨");
+    numberStr.push("⑩");
+    
+	if (obj && obj.msgCode == 1){//已经登陆了，可以查询
+		  var url =  TERMINAL_URL + '/jsonrest/http/HttpServiceInfo/1/getFinanceAnalysis';
+		  var companyid =  getUrlParam('companyId');
+			show_loading("body","/images/loading.gif",true); 
+		$.post(url,{"companyid":companyid},function(re){
+				console.log(re);
+				
+				if(re.entity.data.length>0){
+					var htmlStr = "";
+		
+					for(var i =0;i<re.entity.data.length;i++){
+						htmlStr +='	 <div class="service-warm-item">';
+						htmlStr +='	 <i class="iconfont">'+numberStr[i]+'</i>'+re.entity.data[i]+'';
+						htmlStr += '</div>'				
+					}
+					$(".service-empty").hide();
+					$(".service-warm").html(htmlStr);
+					
+					$(".service-warm").show();
+				}else{
+					$(".service-empty").show();
+					
+					$(".service-warm").hide();
+				}
+				
+				remove_loading(); 
+				
+		},"json");
+		
+		
+    }else{
+
+    	$(".service-empty").hide();
+    	
+		$(".service-warm").show();
+    }
+	
+	
+   
+  });
+</script>
+</html>

@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>e账柜-更改手机号</title>
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="styles/base.min.css">
+  <link rel="stylesheet" href="styles/options.min.css">
+</head>
+<body>
+
+<header class="header">
+  <div class="header-toBack" onclick="location.href='/options.html'"><i class="iconfont icon-zuojiantou"></i></div>
+  <span class="header-title">更改手机号</span>
+</header>
+
+
+<div class="changeTel-input">
+  <label class="changeTel-input-item">
+    <input type="tel" placeholder="请输入新手机号" id="changeTel_newTel" maxlength="11" onkeyup="value=value.replace(/[^\d]/g,'')">
+  </label>
+  <label class="changeTel-input-item">
+    <input type="text" placeholder="请填写验证码" id="changeTel_getVerificationCode">
+    <button type="button" id="changeTel_getVerificationCode_new">发送验证码</button>
+  </label>
+</div>
+<p  class="changeTel-info" style="display: none">
+  密码或验证码错误，请重新输入！
+</p>
+<div class="changeTel-button">
+  <button type="button" id="changeTel_button_new">保存</button>
+</div>
+<div class="dialog-main" id="changeTel_dialog" style="display: none">
+  <p>手机号修改成功，下次登录请使用新手机号</p>
+  <button type="button" id="changeTel_dialog_yes">确定</button>
+</div>
+
+<script src="scripts/jquery.min.js"></script>
+<script src="scripts/setTime.min.js"></script>
+<script src="scripts/show_dialog.min.js"></script>
+<script src="js/common.js" type="text/javascript"></script>
+<script src="/scripts/common/common.js"></script>
+<script src="/scripts/common/module.js"></script>
+<script src="/scripts/common/jbase64.js"></script>
+<script src="/scripts/gt.js"></script>
+<script src="js/options/options_changeTel2.js"></script>
+<script src="/js/count.js"></script>
+</body>
+</html>

@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>e账柜-我的服务</title>
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="styles/base.min.css">
+    <link rel="stylesheet" href="styles/service.min.css">
+    <link rel="stylesheet" href="styles/css.css"/>
+    <link rel="stylesheet" href="fonts/iconfont.css">
+</head>
+<body>
+<div class="header themeBG">
+    <a class="header-title" href="login_usePW.html" style="display: none">您尚未登录</a>
+    <div class="header-mean forService"
+         onclick="this.className=='header-mean forService'?this.className='header-mean forService open':this.className='header-mean forService'">
+        <ul class="header-mean-list forService">
+
+
+        </ul>
+        <span id="service_company">新年快乐有限公司</span>
+    </div><img id="xlImg" style="margin-bottom: -4px;width: 16px;height: 16px;" src="img/xl.png">
+</div>
+<div id="yyHasData">
+<div class="service-quota null service_report aclick">
+    <div class="service-adviser service_adviser_report">
+        <div class="service_div">
+            <span>财务报表</span>
+            <span id="period">xx年xx月</span>
+        </div>
+        <div class="service_div_detail">
+            <a id="show_detail"  href="service_list.html?companyId=8aad34155982dc66015982e59ccb0027" style="color: #fff">详情 ></a>
+        </div>
+    </div>
+    <div class="service-adviser service_profit">
+        <center>
+            <img src="img/u117.svg" style="width: 13px;display: none;" id="u117">
+            <b>月净利润(元)</b>
+        </center>
+        <center><h1 id="ylr">88888</h1></center>
+    </div>
+</div>
+<div class="service-adviser service_earning">
+    <div class="service_div_left" id="ysrdiv">
+        <p class="font_size13">月收入(元)</p>
+        <p id="ysr">88888</p>
+    </div>
+    <div class="service_div_left">
+        <p class="font_size13">货币资金(元)</p>
+        <p id="hbzj">88888</p>
+    </div>
+    <div class="service_div_left">
+        <p class="font_size13">成本费用(元)</p>
+        <p id="cbfy">88888</p>
+    </div>
+    <div class="service_div_left">
+        <p class="font_size13">税金(元)</p>
+        <p id="sj">88888</p>
+    </div>
+</div>
+
+<div class="service-adviser" style="border: none;">
+    <div class="service_div2">
+        <span>本月财务预警(</span><span id="yjNum">0</span><span>)</span>
+    </div>
+    <div class="service_detial">
+        <a id="financeAnalysis"  href="/service_warn.html" >详情 ></a>
+        
+    </div>
+</div>
+</div>
+ <div class="service-quota-null">
+    <p>您尚未办理相关业务,<a href="/class/jzfw.html">马上了解,</a> 享受专业财税服务吧！</p>
+  </div>
+<div class="service-myService">
+    <p class="title">我的服务</p>
+    <div class="service-myService-null" >
+        <p>您尚未办理相关服务,马上<a href="/class.html">去商城逛逛</a>吧!</p>
+    </div>
+    <div id="hasData">
+    <ul class="list">
+        <li class="list-item">
+            <a id="index" class="active" href="#"><i class="iconfont icon-quanbu" style="color: rgba(178, 45, 0, 1)"></i><span style="margin-left: 1px;font-size: 14px;">全部(</span><span id="allNum">2</span><span>)</span></a>
+        </li>
+        <li class="list-item"><a id="news" href="#"><i class="iconfont icon-gongshangshiwu"></i><span style="margin-left: 1px;font-size: 14px;">商事(</span><span id="ssNum">2</span><span>)</span></a></li>
+        <li class="list-item"><a id="contact" href="#"><i class="iconfont icon-cehua"></i><span style="margin-left: 1px;font-size: 14px;">企划(</span><span id="qhNum">0</span><span>)</span></a></li>
+        <li class="list-item"><a id="about" href="#"><i class="iconfont icon-caishuifuwu"></i><span style="margin-left: 1px;font-size: 14px;">财税(</span><span id="csNum">0</span><span>)</span></a></li>
+    </ul>
+    <div id="div1">
+     	<a href="service_my.html?workOrderId=37451" class="service-myService-item"><p class="service-myService-item-name">内资公司注册（包括刻章备案，银行开户，国地税报到）</p> <p class="service-myService-item-state">目前进度：<strong>工商约号</strong></p> <div class="service-myService-item-deadline">预计完成时间：<span>2017-03-24</span></div><span>详情 &gt;&gt;</span></a>
+			   <a href="service_my.html?workOrderId=37414" class="service-myService-item"><p class="service-myService-item-name">地址变更（广州同区）</p> <p class="service-myService-item-state">目前进度：<strong>工商受理</strong></p> <div class="service-myService-item-deadline">预计完成时间：<span>2017-03-08</span></div><span>详情 &gt;&gt;</span></a>
+		
+    </div>
+    <div id="div2" style="display: none">
+      <a class="div2" href="service_my.html?workOrderId=37451" class="service-myService-item"><p class="service-myService-item-name">内资公司注册（包括刻章备案，银行开户，国地税报到）</p> <p class="service-myService-item-state">目前进度：<strong>工商约号</strong></p> <div class="service-myService-item-deadline">预计完成时间：<span>2017-03-24</span></div><span>详情 &gt;&gt;</span></a>
+	  <a class="div2"  href="service_my.html?workOrderId=37414" class="service-myService-item"><p class="service-myService-item-name">地址变更（广州同区）</p> <p class="service-myService-item-state">目前进度：<strong>工商受理</strong></p> <div class="service-myService-item-deadline">预计完成时间：<span>2017-03-08</span></div><span>详情 &gt;&gt;</span></a>
+    	<div  id="ssNullTip" style="text-align: center;padding: 15px;font-size: 12px;display: none">东家，我们还未给您提供任何服务。
+    	  		<br>
+				<a style="color: #742323;font-weight: bolder;" href="/class/zcsb.html">点击这里</a>获得广州最快的商事服务。
+			</div>
+    </div>
+    <div id="div3" style="display: none">
+    <div style="text-align: center;padding: 15px;font-size: 12px;">东家，我们还未给您提供任何服务。 <br>
+			<a style="color: #742323;font-weight: bolder;" href="/class/zsrz.html">点击这里</a>快速获得政府补助。
+			</div>
+    </div>
+    <div id="div4" style="display: none">
+      <div style="text-align: center;padding: 15px;font-size: 12px;">东家，我们还未给您提供任何服务。<br>
+		<a style="color: #742323;font-weight: bolder;" href="/class/jzfw.html">点击这里</a>即可拥有会计服务</div>
+ 			
+    </div>
+	</div>
+</div>
+<div class="dialog-main" id="telInput">
+    <p class="clock"><span>顾问：</span><span id="name">xxx</span></p>
+    <p class="clock"><span>电话：</span><span id="tel">xxxxxxxxxx</span></p>
+</div>
+<footer class="footer">
+ <a class="footer-cell" href="/">
+    <span class="footer-cell-icon">
+      <i class="iconfont icon-shouye"></i>
+    </span>
+    <p>首页</p>
+  </a>
+<!--   <a class="footer-cell" href="/class/gszc.html">
+    <span class="footer-cell-icon">
+      <i class="iconfont icon-fenlei"></i>
+    </span>
+    <p>分类</p>
+  </a> -->
+  <a class="footer-cell" href="/kfdialog.htm">
+    <span class="footer-cell-icon">
+      <i class="iconfont icon-zaixiankefuzhuanhuan"></i>
+    </span>
+    <p>在线咨询</p>
+  </a>
+  <a class="footer-cell" href="/service.html">
+    <span class="footer-cell-icon">
+      <i class="iconfont icon-fuwu"></i>
+    </span>
+    <p>我的服务</p>
+  </a>
+  <a class="footer-cell" href="/center.html">
+    <span class="footer-cell-icon">
+      <i class="iconfont icon-gerenzhongxin"></i>
+    </span>
+    <p>个人中心</p>
+  </a>
+</footer>
+<!--
+<div class="showTelInput" id="showTelInput">
+    <svg class="icon" aria-hidden="true">
+        <use xlink:href="#icon-dianhua"></use>
+    </svg>
+</div>-->
+
+<script src="/js/iconfont.js"></script>
+<script src="/scripts/jquery.min.js"></script>
+<script src="/js/js.js"></script>
+<script src="/scripts/common/common.js"></script>
+<script src="/scripts/common/module.js"></script>
+<script src="/scripts/show_dialog.min.js"></script>
+<script src="/scripts/show_loading.min.js"></script>
+<script src="/js/service/myservice2.js"></script>
+<script src="/js/count.js"></script>
+<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+<script src="/js/wechatShare.js"></script>
+<script src="/scripts/echarts.simple.min.js"></script>
+<script src="/scripts/count_down.min.js"></script>
+
+<script type="text/javascript">
+    setCookie("serviceIsClick", true);
+    $("#showTelInput").show();
+    var showTelInput = new Dialog('#telInput', {});
+    $('#showTelInput').click(function () {
+        showTelInput.show_dialog();
+    })
+
+
+</script>
+</body>
+</html>

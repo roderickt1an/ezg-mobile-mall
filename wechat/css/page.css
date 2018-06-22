@@ -1,0 +1,84 @@
+/* 
+* @Author: Administrator
+* @Date:   2016-01-13 09:02:25
+* @Last Modified by:   Administrator
+* @Last Modified time: 2016-03-24 14:59:59
+*/
+/*----------------one----------------*/
+/*--------------header----------------*/
+body{
+	padding-top: 2rem;
+	padding-bottom: 3rem;
+}
+
+
+/*------------about------------*/
+.about-hd{
+	width:100%;
+	position: relative;
+}
+.about-hd img{
+	width: 100%;
+}
+.about-hd h2{
+	font-size: .75rem;
+	color: #000;
+	position: absolute;
+	right: 10%;
+	top: 10%;
+}
+.about-m{
+	width: 93%;
+	margin: .4rem auto;
+	background: #fff;
+	
+}
+.about-t{
+	margin:.4rem;
+}
+.about-t h3{
+	color:#952F2A;
+	font-size:.6rem;
+	padding-top:.4rem
+}
+.about-m .about-t p{
+	line-height: 1rem;
+	margin-top: .2rem;
+	font-size: .45rem;
+	color: #666666;
+}
+.about-m .about-t ul{
+	margin-top:.5rem;
+	overflow: hidden;
+}
+.about-m .about-t ul li{
+	float: left;
+}
+.about-m .about-t ul li.ewm{
+	width: 4rem;
+	height: 4rem;
+	display: inline;
+	margin-bottom: 1rem;
+}
+.about-m .about-t ul li.about-f {
+	margin: -.3rem 0 0 .6rem;
+	display:inline;
+}
+
+
+.accounts-t{
+	width: 100%;
+	height: 2rem;
+	line-height: 2rem;
+	background: #fff;
+	position: fixed;
+	top: 0;
+	border-bottom: 1px solid #d5d5d5;
+}
+.accounts-t p{
+	width: 100%;
+	text-align: center;
+	font-size: .75rem;
+	color: #555;
+	margin-right: .83rem;
+}

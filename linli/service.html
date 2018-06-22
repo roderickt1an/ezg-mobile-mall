@@ -1,0 +1,242 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>e账柜-我的服务</title>
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="styles/base.min.css">
+  <link rel="stylesheet" href="styles/service.min.css">
+</head>
+<body>
+
+
+
+
+
+
+<div class="header themeBG">
+  <a class="header-title" href="login_usePW.html" style="display: none">您尚未登录</a>
+  <div class="header-mean forService" onclick="this.className=='header-mean forService'?this.className='header-mean forService open':this.className='header-mean forService'">
+    <ul class="header-mean-list forService">
+      <li class="item" onclick="getElementById('service_company').innerText=this.innerText">广州亿账柜信息科技有限公司</li>
+      <li class="item" onclick="getElementById('service_company').innerText=this.innerText">深圳亿账柜信息科技有限公司</li>
+      <li class="item" onclick="getElementById('service_company').innerText=this.innerText">东莞亿账柜信息科技有限公司</li>
+    </ul>
+    <span id="service_company">选择您的企业</span>
+    <i class="iconfont icon-xiajiantou"></i>
+  </div>
+</div>
+
+
+
+<div class="service-adviser">
+  <div class="service-adviser-left">
+    <p id="adviser_info">专属顾问：<span>张晓梅</span></p>
+  </div>
+  <div class="service-adviser-right">
+    <a href="tel:4008812580" id="adviser_tel"><i class="iconfont icon-dianhua"></i><span>400-88-12580</span></a>
+  </div>
+</div>
+<div class="service-quota">
+  <p class="title"><span id="service_quota_month">12月财务指标</span><a class="link" href="/service_list.html">详情 >></a></p>
+  <p class="unit">单位：万元</p>
+  <div class="service-quota-main clearfix">
+    <a id="echart_main" href="/service_list.html">
+    </a>
+    <a class="info" href="/service_warn.html" onclick="stopPropagation()">
+      <p>
+        本<br>
+        月<br>
+        财<br>
+        税<br>
+        预<br>
+        警<br>
+        >>
+      </p>
+    </a>
+  </div>
+  <div class="service-quota-null">
+    <p>您尚未办理相关服务，<a href="#">马上了解</a>，享受专业财税服务吧!</p>
+  </div>
+</div>
+<div class="service-myService">
+  <p class="title">我的服务</p>
+  <div class="service-myService-null">
+    <p>您尚未办理相关服务，马上<a href="#">去商城</a>逛逛吧！</p>
+  </div>
+  
+  <a href="service_my.html" class="service-myService-item">
+    <p class="service-myService-item-name">内资有限公司注册</p>
+    <p class="service-myService-item-state">目前进度：<strong>刻章备案</strong></p>
+    <p class="service-myService-item-deadline">预计完成时间：<span>20161121</span></p>
+    <span>详情 >></span>
+  </a>
+  
+  <a href="service_my.html" class="service-myService-item">
+    <p class="service-myService-item-name">内资有限公司注册</p>
+    <p class="service-myService-item-state">目前进度：<strong>刻章备案</strong></p>
+    <p class="service-myService-item-deadline">预计完成时间：<span>20161121</span></p>
+    <span>详情 >></span>
+  </a>
+  
+</div>
+<div class="service-footer">
+  <p class="title">- e账柜-中小企业财税服务共享服务中心 -</p>
+  <div class="tel">
+    <i class="iconfont icon-kefu"></i>
+    <span class="number">400-88-12580</span>
+  </div>
+</div>
+<div class="dialog-main" id="telInput">
+  <p class="title"><span>限时免费记账</span></p>
+  <p class="clock"><span id="show">1天1时1分1秒</span></p>
+  <label>
+    <input class="input" type="text" placeholder="请输入您的手机号">
+  </label>
+  <p class="info">请输入正确的手机号</p>
+  <div class="buttonBox">
+    <button type="button" class="button">立即体验</button>
+  </div>
+</div>
+<footer class="footer">
+  <a class="footer-cell" href="index.html">
+    <span class="footer-cell-icon">
+      <i class="iconfont icon-shouye"></i>
+    </span>
+    <p>首页</p>
+  </a>
+  <a class="footer-cell" href="http://cs.ecqun.com/mobile/?id=2134296&handle=talk&scheme=0">
+    <span class="footer-cell-icon">
+      <i class="iconfont icon-zaixiankefuzhuanhuan"></i>
+    </span>
+    <p>在线咨询</p>
+  </a>
+  <a class="footer-cell tip" href="service.html">
+    <span class="footer-cell-icon">
+      <i class="iconfont icon-fuwu"></i>
+    </span>
+    <p>我的服务</p>
+  </a>
+  <a class="footer-cell" href="center.html">
+    <span class="footer-cell-icon">
+      <i class="iconfont icon-gerenzhongxin"></i>
+    </span>
+    <p>个人中心</p>
+  </a>
+</footer>
+
+
+
+
+
+
+<div class="showTelInput" id="showTelInput">
+  <p class="text">优惠</p>
+  <p class="text">抢购</p>
+</div>
+
+
+<script src="scripts/jquery.min.js"></script>
+<script src="scripts/show_loading.min.js"></script>
+<script src="scripts/echarts.simple.min.js"></script>
+<script src="scripts/show_dialog.min.js"></script>
+<script src="scripts/count_down.min.js"></script>
+
+<script>
+
+  $(document).ready(function () {
+    var date = new Date();
+    var year = date.getFullYear();
+    var month = date.getMonth()+1;
+    var day = date.getDate();
+    show_loading('body','images/loading.gif',true);
+    console.log(year+'-'+month+'-'+day);
+    if(day<23){
+      day=day+7
+    }else {
+      month=month+1
+      day=0
+    }
+    console.log(year+'-'+month+'-'+day);
+    count_down(year+'-'+month+'-'+day);
+    var showTelInput = new Dialog('#telInput', {});
+    $('#showTelInput').click(function () {
+      showTelInput.show_dialog();
+    })
+    $('.footer-cell-icon').find('.icon-fuwu').parent().parent().addClass('active');
+    // 基于准备好的dom，初始化echarts实例
+    var myChart = echarts.init(document.getElementById('echart_main'));
+
+    // 指定图表的配置项和数据
+    var option = {
+      tooltip: {},
+      xAxis: {
+        data: ["货币资金", "收入", "成本、费用", "利润", "税金"],
+        axisLabel: {
+          interval: 0
+        }
+      },
+      yAxis: {
+        axisLabel: {
+          show: false
+        },
+        axisTick: {
+          show: false
+        }
+      },
+      grid: {
+        top: 20,
+        right: 20,
+        left: 20,
+        bottom: 40
+      },
+      series: [{
+        name: '销量',
+        type: 'bar',
+        barCategoryGap: '50%',
+        label: {
+          normal: {
+            show: true,
+            position: 'top'
+          }
+        },
+        itemStyle: {
+          normal: {
+            barBorderColor: '#3f85bf',
+            color: '#3f85bf'
+          }
+        },
+        data: [{
+          name: '货币资金',
+          value: 1000
+        }, {
+          name: '成本、费用',
+          value: 1500
+        }, {
+          name: '货币资金',
+          value: 1000
+        }, {
+          name: '货币资金',
+          value: -100,
+          itemStyle: {
+            normal: {
+              barBorderColor: '#ff3333',
+              color: '#ff3333'
+            }
+          }
+        }, {
+          name: '货币资金',
+          value: 1000
+        }]
+      }]
+    };
+
+    // 使用刚指定的配置项和数据显示图表。
+    myChart.setOption(option);
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!Doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>e账柜-短信登录</title>
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="styles/base.min.css">
+  <link rel="stylesheet" href="styles/PRL.min.css">
+</head>
+<body>
+
+
+
+
+<header class="header">
+  <div class="header-toBack" onclick="history.go(-1);"><i class="iconfont icon-zuojiantou"></i></div>
+  <span class="header-title">短信登录</span>
+</header>
+
+
+
+
+
+<div class="PRL-logo">
+  <p>
+    <img src="images/LOGO_black.png">
+  </p>
+</div>
+<div class="login-input">
+  <label>
+    <i class="iconfont icon-gerenzhongxin"></i>
+    <input type="tel" placeholder="请输入手机号" id="loginM_phoneNumber">
+  </label>
+  <label>
+    <i class="iconfont icon-yanzhengma"></i>
+    <input type="text" placeholder="请输入验证码" id="loginM_verificationCode">
+    <button type="button" class="login-input-getVerificationCode" id="loginM_getVerificationCode">发送验证码</button>
+  </label>
+</div>
+<p class="login-error">
+  密码或帐号不正确！
+</p>
+<div class="login-submit">
+  <button type="button" id="loginM_submit">登录</button>
+</div>
+<div class="login-option">
+  <a href="resetPassword.html" class="login-link">忘记密码</a>
+  <a href="register.html" class="login-link right">在线注册</a>
+  <p class="clearfix">
+    <a href="login_usePW.html" class="login-link right"><i class="iconfont icon-mima"></i>切换密码登录</a>
+  </p>
+</div>
+<div class="PRL-otherWay">
+  <p><span>第三方登录</span></p>
+  <div>
+    <a class="PRL-otherWay-icon" href=""><i class="iconfont icon-weixin"></i></a>
+    <a class="PRL-otherWay-icon" href=""><i class="iconfont icon-QQ"></i></a>
+  </div>
+</div>
+<script src="scripts/jquery.min.js"></script>
+<script src="/scripts/setTime.min.js"></script>
+<script>
+  $(document).ready(function () {
+    $('#loginM_getVerificationCode').click(function () {
+//      验证码按钮触发事件，建议完成Ajax后再调用计时器
+      setTime($(this), 10);
+    })
+  })
+</script>
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!Doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>e账柜-注册</title>
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="styles/base.min.css">
+  <link rel="stylesheet" href="styles/PRL.min.css">
+</head>
+<body>
+
+
+
+
+<header class="header">
+  <div class="header-toBack" onclick="history.go(-1);"><i class="iconfont icon-zuojiantou"></i></div>
+  <span class="header-title">注册</span>
+</header>
+
+
+
+
+
+<div class="PRL-logo">
+  <p>
+    <img src="images/LOGO_black.png">
+  </p>
+</div>
+<div class="register-input">
+  <label>
+    <i class="iconfont icon-gerenzhongxin"></i>
+    <input type="tel" placeholder="请输入手机号" id="register_phoneNumber">
+  </label>
+  <label>
+    <i class="iconfont icon-mima"></i>
+    <input type="password" placeholder="请输入密码" id="register_password">
+  </label>
+  <label>
+    <i class="iconfont icon-gou"></i>
+    <input type="password" placeholder="请再次输入密码" id="register_rePassword">
+  </label>
+  <label>
+    <i class="iconfont icon-yanzhengma"></i>
+    <input type="text" placeholder="请输入验证码" id="verificationCode">
+    <button type="button" class="register-input-getVerificationCode" id="register_getVerificationCode">发送验证码</button>
+  </label>
+</div>
+<p class="register-error">
+  密码或帐号不正确！
+</p>
+<div class="register-submit">
+  <button type="button" id="register_submit">注册</button>
+</div>
+<div class="register-option clearfix">
+  <a href="login_usePW.html">已有帐号，立即登录</a>
+</div>
+<script src="scripts/jquery.min.js"></script>
+<script src="/scripts/setTime.min.js"></script>
+<script>
+  $(document).ready(function () {
+    $('#register_getVerificationCode').click(function () {
+//      验证码按钮触发事件，建议完成Ajax后再调用计时器
+      setTime($(this), 10);
+    })
+  })
+</script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!Doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>e账柜-绑定帐号</title>
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="/styles/base.min.css">
+  <link rel="stylesheet" href="/styles/PRL.min.css">
+</head>
+<body>
+<div class="PRL-logo">
+  <p>
+    <img src="/images/LOGO_black.png">
+  </p>
+</div>
+<p class="bind-title">
+  登录成功，马上绑定e账柜帐号吧！
+</p>
+<div class="bind-input">
+  <label>
+    <i class="iconfont icon-gerenzhongxin"></i>
+    <input type="tel" placeholder="请输入手机号" id="bind_phoneNumber">
+  </label>
+  <label>
+    <i class="iconfont icon-yanzhengma"></i>
+    <input type="text" placeholder="请输入验证码" id="bind_verificationCode">
+    <button type="button" class="bind-input-getVerificationCode" id="bind_getVerificationCode">发送验证码</button>
+  </label>
+</div>
+<p class="bind-error">
+  密码或帐号不正确！
+</p>
+<div class="bind-submit">
+  <button type="button" id="bind_submit">立即绑定</button>
+</div>
+<script src="scripts/jquery.min.js"></script>
+
+<script src="scripts/setTime.min.js"></script>
+<script src="scripts/show_dialog.min.js"></script>
+<script src="scripts/gt.js"></script>
+<script src="js/common.js"></script>
+<script src="js/bind.js"></script>
+
+</body>
+</html>
